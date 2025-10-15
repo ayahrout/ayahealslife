@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Emily - Life Coach and Writer HTML Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="author">
+    <meta name="keywords" content="keywords">
+    <meta name="description" content="description">
+
+    <link rel="stylesheet" href="../npm/swiper%409/swiper-bundle.min-1.css">
+
+
+    <link href="../npm/bootstrap%405.3.1/dist/css/bootstrap.min-1.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/vendor-1.css">
+    <link rel="stylesheet" type="text/css" href="style-1.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../css2-1?family=Licorice&family=Playfair+Display:ital,wght@0,400;1,700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-primary">
+
+
+    <div id="billboard" class="padding-medium-2">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="display-1 secondary-font">Unleash Your Potential</h2>
+                <h2 class="display-1 text-white text-uppercase">Coming Soon</h2>
+
+                <div id="countdown-clock">
+                    <div class="time">
+                        <span class="days"></span>
+                        <small>Days</small>
+                    </div>
+                    <div class="time">
+                        <span class="hours"></span>
+                        <small>Hours</small>
+                    </div>
+                    <div class="time">
+                        <span class="minutes"></span>
+                        <small>Minutes</small>
+                    </div>
+                    <div class="time">
+                        <span class="seconds"></span>
+                        <small>Seconds</small>
+                    </div>
+                </div>
+
+                <a href="index-1.html" class="btn btn-primary bg-black px-4 py-3 mt-4 text-uppercase">go back to home</a>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function getTimeRemaining(endtime) {
+            const total = Date.parse(endtime) - Date.parse(new Date());
+            const seconds = Math.floor((total / 1000) % 60);
+            const minutes = Math.floor((total / 1000 / 60) % 60);
+            const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+            const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+            return {
+                total,
+                days,
+                hours,
+                minutes,
+                seconds
+            };
+        }
+
+        function initializeClock(id, endtime) {
+            const clock = document.getElementById(id);
+            const daysSpan = clock.querySelector('.days');
+            const hoursSpan = clock.querySelector('.hours');
+            const minutesSpan = clock.querySelector('.minutes');
+            const secondsSpan = clock.querySelector('.seconds');
+
+            function updateClock() {
+                const t = getTimeRemaining(endtime);
+
+                daysSpan.innerHTML = t.days;
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }
+
+            updateClock();
+            const timeinterval = setInterval(updateClock, 1000);
+        }
+
+        const deadline = new Date(Date.parse(new Date()) + 28 * 24 * 60 * 60 * 1000);
+        initializeClock('countdown-clock', deadline);
+    </script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="../npm/swiper%409/swiper-bundle.min.js"></script>
+    <script src="../npm/bootstrap%405.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+
+</html>
