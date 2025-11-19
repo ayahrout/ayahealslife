@@ -839,6 +839,82 @@ section,
   }
 }
 
+/* Custom hero tweaks for Aya Heals Life content */
+.hero .why-me {
+  margin-top: 1rem;
+}
+.hero .why-me h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.hero .why-me ul {
+  padding-left: 1rem;
+}
+.hero .why-me ul li {
+  margin-bottom: 0.5rem;
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+}
+
+.hero .hero-stats {
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+.hero .hero-stats .stat-item {
+  background-color: var(--surface-color);
+  padding: 1rem;
+  border-radius: 10px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.hero .hero-stats .stat-item .stat-number {
+  font-size: 1.25rem;
+  color: var(--heading-color);
+}
+.hero .hero-stats .stat-item .stat-label {
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 991px) {
+  .hero .why-me {
+    text-align: center;
+  }
+  .hero .why-me ul {
+    padding-left: 0;
+    display: inline-block;
+    text-align: left;
+  }
+  .hero .hero-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .hero .hero-stats .stat-item {
+    min-width: 45%;
+    align-items: center;
+    text-align: center;
+  }
+  .hero .cta-buttons {
+    margin-bottom: 1.5rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero .hero-stats .stat-item {
+    min-width: 100%;
+  }
+  .hero .why-me ul {
+    text-align: left;
+  }
+}
+
 @keyframes morphShape {
   0% {
     border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
@@ -1126,6 +1202,116 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# About section timeline (mirror resume timeline behavior)
+--------------------------------------------------------------*/
+.about .timeline {
+  position: relative;
+}
+
+.about .timeline::before {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+.about .timeline .timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.about .timeline .timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.about .timeline .timeline-item .timeline-left {
+  width: 20%;
+  padding-right: 3rem;
+}
+
+.about .timeline .timeline-item .timeline-left .company {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.about .timeline .timeline-item .timeline-left .period {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.about .timeline .timeline-item .timeline-dot {
+  position: absolute;
+  left: calc(20% + 1px);
+  transform: translateX(-50%);
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+.about .timeline .timeline-item .timeline-right {
+  width: 70%;
+  padding-left: 3rem;
+  margin-top: -4px;
+}
+
+.about .timeline .timeline-item .timeline-right .position {
+  color: var(--heading-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.about .timeline .timeline-item .timeline-right .description {
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.about .timeline .timeline-item .timeline-right ul {
+  padding-left: 15px;
+}
+
+.about .timeline .timeline-item .timeline-right ul li {
+  padding-bottom: 12px;
+}
+
+@media (max-width: 992px) {
+  .about .timeline::before {
+    left: 1rem;
+  }
+
+  .about .timeline .timeline-item {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .about .timeline .timeline-item .timeline-left {
+    width: 100%;
+    text-align: left;
+    padding-right: 0;
+    padding-left: 2.5rem;
+    margin-bottom: 1.6rem;
+    margin-top: -4px;
+  }
+
+  .about .timeline .timeline-item .timeline-dot {
+    left: calc(1rem + 1px);
+  }
+
+  .about .timeline .timeline-item .timeline-right {
+    width: 100%;
+    padding-left: 2.5rem;
+  }
+}
+
 .portfolio .portfolio-filters-container {
   margin-bottom: 40px;
 }
@@ -1469,6 +1655,22 @@ section,
 @media (max-width: 991px) {
   .services h2 {
     font-size: 2rem;
+  }
+}
+
+/* Replace icon <i> with service images */
+.service-icon {
+  width: 84px;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 767px) {
+  .service-icon {
+    width: 64px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -1943,6 +2145,3 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
